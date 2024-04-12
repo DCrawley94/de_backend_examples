@@ -9,19 +9,16 @@ An example repo for the seeding with PG8000 seminar.
 
 To setup the example DB:
 
-- `psql -f ./db/db-setup.sql`
+- `psql -f db/db-setup.sql`
 
 This will create an database called named `nc_games`.
 
+To seed the database set your `PYTHONPATH` and run this command: `python db/run-seed.py`
+
+For querying the database you can use the `connect_to_db` function in the `db/connection.py` to create a connection object where it is needed.
+
 ## Included in the repo
 
-- data stored in Python files > this can be imported as a dictionary from `db/data/index.py`
-- connection object in `db/connection.py`
-- `db/seed.py` > file containing seed function
-- `db/run-seed.py` > this script will execute the imported seed function (passing in the data as kwargs), it will print any exceptions and close the DB connection.
-
-**Solutions provided for seed function**
-
-Can use `db/run-seed.py` then `db/scratch.sql` to "test" your seed function.
+**Solutions provided for a `GET` and `POST` endpoint**
 
 ![DB Schema](./db_schema.png)

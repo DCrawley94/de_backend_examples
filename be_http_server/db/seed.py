@@ -1,8 +1,9 @@
-from db.connection import conn
+from db.connection import connect_to_db
 from db.utils import create_games_lookup, format_reviews
 
 
 def seed(games, reviews):
+    conn = connect_to_db()
     # Drop tables
     conn.run("DROP TABLE IF EXISTS reviews;")
     conn.run("DROP TABLE IF EXISTS games;")
@@ -65,3 +66,5 @@ def seed(games, reviews):
         """
 
         conn.run(insert_query)
+
+    conn.close()
